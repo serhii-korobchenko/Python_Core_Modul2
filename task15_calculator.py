@@ -53,8 +53,12 @@ wait_for_number = True # флаг, который указывает, что о�
 while True:
       
 
-    work_experience = int(input("Enter your full work experience in years: "))
-
+    input_kursor = input(">>> ")
+    wait_for_number = False if int(input_kursor) == ValueError else True
+    
+    
+    
+    
     if work_experience > 1 and work_experience <=5 :
         developer_type = "Middle"
     elif work_experience <=1 :
