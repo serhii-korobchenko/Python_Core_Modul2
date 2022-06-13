@@ -55,11 +55,11 @@ while True:
 
     input_kursor = input(">>> ")
     wait_for_number = False if int(input_kursor) == ValueError else True
+
     
     
     
-    
-    if work_experience > 1 and work_experience <=5 :
+    """ if work_experience > 1 and work_experience <=5 :
         developer_type = "Middle"
     elif work_experience <=1 :
         developer_type = "Junior"
@@ -69,4 +69,4 @@ while True:
 
     if work_experience < 0:
             break
-
+ """
