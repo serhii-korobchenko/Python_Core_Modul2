@@ -45,28 +45,52 @@ wait_for_number — флаг, который указывает, что ожид
 Result: 18.0
 """
 
-result = None # сюда помещаем итоговый результат 
+
+
+
+result = 0 # сюда помещаем итоговый результат 
 operand = None # всегда хранит текущее число 
 operator = None #строковый параметр, может содержать четыре значения, "+", "-", "*", "/" 
 wait_for_number = True # флаг, который указывает, что ожидают на вводе, оператор (operator) или операнд (operand)
 
 while True:
-      
+    try:
+        input_kursor = input(">>> ")
+        input_kursor_int = int(input_kursor)
+        if wait_for_number == False:
+            print(f"'{input_kursor_int}' is not '+' or '-' or '/' or '*'. Try again")
+        wait_for_number = False
+        operand = input_kursor_int
+       
+        print (wait_for_number)
+    except ValueError:
+        if input_kursor == '+' and wait_for_number == False :
+            operator = "+"
+            result = result + operand
+        elif input_kursor == '-' and wait_for_number == False:
+            operator = "-"
+            result = result - operand
+        elif input_kursor == '*' and wait_for_number == False:
+            operator = "*"
+            result = result * operand
+        elif input_kursor == '/' and wait_for_number == False:
+            operator = "/"
+            result = result / operand
+        else:
+            print(f"'{input_kursor}' is not a number. Try again.")
+        
+        wait_for_number = True
+        print (wait_for_number)
+        
+    
+    finally:
+        
+        print(f"operand - {operand} operator - {operator}")
+        print(f"result - {result}")
+        
 
-    input_kursor = input(">>> ")
-    wait_for_number = False if int(input_kursor) == ValueError else True
+    
 
     
     
-    
-    """ if work_experience > 1 and work_experience <=5 :
-        developer_type = "Middle"
-    elif work_experience <=1 :
-        developer_type = "Junior"
-    else:
-        developer_type = "Senior"
-    print(developer_type)
-
-    if work_experience < 0:
-            break
- """
+  
