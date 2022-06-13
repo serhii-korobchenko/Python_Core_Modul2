@@ -48,7 +48,7 @@ Result: 18.0
 
 
 
-result = 0 # сюда помещаем итоговый результат 
+result = None # сюда помещаем итоговый результат 
 operand = None # всегда хранит текущее число 
 operator = None #строковый параметр, может содержать четыре значения, "+", "-", "*", "/" 
 wait_for_number = True # флаг, который указывает, что ожидают на вводе, оператор (operator) или операнд (operand)
@@ -59,34 +59,51 @@ while True:
         input_kursor_int = int(input_kursor)
         if wait_for_number == False:
             print(f"'{input_kursor_int}' is not '+' or '-' or '/' or '*'. Try again")
-        wait_for_number = False
+        
         operand = input_kursor_int
+
+        if operator == '+' and wait_for_number == True:
+            result = result + operand
+        elif operator == '-' and wait_for_number == True:
+            result = result - operand
+        elif operator == '*' and wait_for_number == True:
+            result = result * operand
+        elif operator == '/' and wait_for_number == True:
+            result = result / operand
+        elif wait_for_number == True:
+            result = operand
+        
+            
+        wait_for_number = False
        
-        print (wait_for_number)
+        #print (wait_for_number)
     except ValueError:
         if input_kursor == '+' and wait_for_number == False :
             operator = "+"
-            result = result + operand
+            #result = result + operand
         elif input_kursor == '-' and wait_for_number == False:
             operator = "-"
-            result = result - operand
+            #result = result - operand
         elif input_kursor == '*' and wait_for_number == False:
             operator = "*"
-            result = result * operand
+            #result = result * operand
         elif input_kursor == '/' and wait_for_number == False:
             operator = "/"
-            result = result / operand
+            #result = result / operand
+        elif input_kursor == '=' and wait_for_number == False:
+            print(f"Result: {result}")
+            break
         else:
             print(f"'{input_kursor}' is not a number. Try again.")
         
         wait_for_number = True
-        print (wait_for_number)
+        #print (wait_for_number)
         
     
     finally:
-        
-        print(f"operand - {operand} operator - {operator}")
-        print(f"result - {result}")
+        None
+        #print(f"operand - {operand} operator - {operator}")
+        print(f"result: {result}")
         
 
     
