@@ -103,7 +103,7 @@ while True:
     finally:
         None
         #print(f"operand - {operand} operator - {operator}")
-        print(f"result: {result}")
+        #print(f"result: {result}")
         
 
     
